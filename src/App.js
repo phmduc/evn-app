@@ -7,6 +7,8 @@ import Profile from './pages/profile/profile.js';
 import Contact from './pages/Contact/Contact';
 import Category from './pages/category/category';
 import AboutUs from './pages/aboutus/aboutus';
+import Blogs from './pages/blogs/blogs';
+
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
         <Route path='/category' element={<Category />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/contact' element={<Contact />} />
-
+        <Route path='/blogs' element={<Blogs />} />
         
 
       </Routes>
