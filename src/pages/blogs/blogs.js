@@ -10,7 +10,7 @@ class Blogs extends Component {
           <div className='blogs'>
             <h6>Tin tức nền tảng</h6>
             <div className='list-item'>
-              <a href='#' className='item d-flex justify-content-between align-items-center'>
+              <a href='/blogdetail' className='item d-flex justify-content-between align-items-center'>
                 <div className='item-title d-flex'>
                   <p>Tập đoàn Điện lực Việt Nam</p>
                 </div>
