@@ -66,7 +66,7 @@ class Tabs extends Component {
       // centerPadding: "0px",
     };
     return (
-      <div>
+      <div className="container">
         <div className="tabHeader">
           <Slider
             {...settings}

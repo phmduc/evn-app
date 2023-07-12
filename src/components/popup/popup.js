@@ -6,7 +6,6 @@ class Popup extends Component {
   render() {
     return (
         <div>
-            Popup
         </div>
     );
   }
