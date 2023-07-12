@@ -14,16 +14,18 @@ class Banner extends Component {
       autoplaySpeed: 5000,
     };
     return (
-      <div className="banner">
-      <Slider {...settings}>
-          <img src="image/banner1.webp" className="banner-item" />
-          <img src="image/banner2.webp" className="banner-item" />
-          <img src="image/banner3.webp" className="banner-item" />
-          <img src="image/banner4.webp" className="banner-item" />
-          <img src="image/banner5.webp" className="banner-item" />
-          <img src="image/banner6.webp" className="banner-item" />
-      </Slider>
-    </div>
+     <div className="container">
+        <div className="banner">
+        <Slider {...settings}>
+            <img src="image/banner1.webp" className="banner-item" />
+            <img src="image/banner2.webp" className="banner-item" />
+            <img src="image/banner3.webp" className="banner-item" />
+            <img src="image/banner4.webp" className="banner-item" />
+            <img src="image/banner5.webp" className="banner-item" />
+            <img src="image/banner6.webp" className="banner-item" />
+        </Slider>
+      </div>
+     </div>
     );
   }
 }

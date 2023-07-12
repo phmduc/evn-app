@@ -1,13 +1,34 @@
-import React, { Component } from "react";
+import React, { useState , useEffect }  from "react";
 import FooterOnly from "~/layouts/FooterOnly/FooterOnly.js";
 // import Tabs from '~/components/tabs/tabs';
+import { useNavigate } from "react-router-dom";
 import "~/pages/authen/authen.css";
-
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from "~/redux/authentication/actionCreator";
+import actions from "~/redux/authentication/actions";
 
-class Authen extends Component {
-  render() {
+
+
+function Authen() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(()=>{
+
+  },[dispatch])
+  const handleSubmit = (event) => {
+    const values ={
+      phone: phone,
+      password: password,
+    }
+    dispatch(login(values, () => window.location.reload()))
+  }
+
     return (
       <FooterOnly>
         <div className="authen">
@@ -25,15 +46,25 @@ class Authen extends Component {
                 <div className="list-input">
                   <input
                     type="text"
-                    placeholder="Vui lòng nhập tài khoản của bạn"
+                    name="phone"
+                    value={phone}
+                    onChange={(e)=>{
+                      setPhone(e.target.value)
+                    }}
+                    placeholder="Vui lòng nhập số điện thoại của bạn"
                   ></input>
                   <input
                     type="password"
+                    name="password"
+                    value={password}
+                    onChange={(e)=>{
+                      setPassword(e.target.value)
+                    }}
                     placeholder="Xin vui lòng nhập mật khẩu"
                   ></input>
                 </div>
                 <div className="list-btn">
-                  <button>Đăng nhập</button>
+                  <button onClick={handleSubmit}>Đăng nhập</button>
                   <button>Quên mật khẩu</button>
                   <button>Ngôn ngữ</button>
                 </div>
@@ -72,6 +103,5 @@ class Authen extends Component {
       </FooterOnly>
     );
   }
-}
 
 export default Authen;

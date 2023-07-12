@@ -10,7 +10,7 @@ class MainLayout extends Component {
   render() {
    return( 
    <Fragment>
-        <div className='container'>
+        <div className=''>
             <Header/>
             {this.props.children}
             <Footer/>
