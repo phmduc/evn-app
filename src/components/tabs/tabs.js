@@ -60,7 +60,7 @@ class Tabs extends Component {
       arrows: false,
     };
     return (
-      <div>
+      <div className="container">
         <div className="tabHeader">
           <Slider
             {...settings}

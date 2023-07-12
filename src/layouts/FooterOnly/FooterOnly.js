@@ -8,7 +8,7 @@ class FooterOnly extends Component {
   render() {
    return( 
    <Fragment>
-        <div className='container'>
+        <div className=''>
             {this.props.children}
             <Footer/>
         </div>

@@ -10,7 +10,7 @@ class MainLayout extends Component {
   render() {
    return( 
    <Fragment>
-        <div className='container'>
+        <div className='' style={{backgroundColor: '#f3f3f3'}}>
             <Header/>
             {this.props.children}
             <Footer/>
