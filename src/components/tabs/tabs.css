@@ -94,6 +94,7 @@
     list-style: none;
     padding: 0;
     display: flex;
+    justify-content: space-between;
 }
 .contentTab .boxProject .content ul span{
     font-size: 0.938rem;
