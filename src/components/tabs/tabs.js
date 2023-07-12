@@ -58,12 +58,6 @@ class Tabs extends Component {
       infinite: false,
       speed: 500,
       arrows: false,
-      slidesToShow: 1,
-      swipeToSlide: false,
-      focusOnSelect: true,
-      slidesToScroll: 1,
-      // centerMode: true,
-      // centerPadding: "0px",
     };
     return (
       <div>
@@ -72,7 +66,10 @@ class Tabs extends Component {
             {...settings}
             asNavFor={this.state.nav5}
             ref={(slider) => (this.slider1 = slider)}
-            slidesToShow={1}
+            slidesToShow={3}
+            swipeToSlide={true}
+            focusOnSelect={true}
+            centerMode={true}
           >
             <div className="itemHeader">Tất cả</div>
             <div className="itemHeader">Sản phẩm phúc lợi</div>
