@@ -12,7 +12,9 @@
 .aboutus .list-item .item{
     color: black;
     text-decoration: none;
-    margin-bottom: 1rem;
+    padding: 1rem .5rem;
+    background: #fff;
+    border-bottom: .5px solid #eff1f3;
 }
 
 .aboutus .list-item .item .item-title p {
