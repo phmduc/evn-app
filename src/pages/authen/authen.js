@@ -1,4 +1,4 @@
-import React, { useState , useEffect }  from "react";
+import React, { useState , useEffect, useCallback, useRef }  from "react";
 import FooterOnly from "~/layouts/FooterOnly/FooterOnly.js";
 // import Tabs from '~/components/tabs/tabs';
 import { useNavigate } from "react-router-dom";
@@ -6,10 +6,10 @@ import "~/pages/authen/authen.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from "~/redux/authentication/actionCreator";
+import { login,register} from "~/redux/authentication/actionCreator";
 import actions from "~/redux/authentication/actions";
-
-
+import Captcha from 'react-captcha-code';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Authen() {
   const dispatch = useDispatch()
@@ -17,6 +17,17 @@ function Authen() {
 
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+
+
+  const [regisphone, setregisPhone] = useState('');
+  const [regispassword, setregisPassword] = useState('');
+  const [regisrepassword, setregisrePassword] = useState('');
+  const [code, setCode] = useState('');
+  const randomNumber = Math.floor(Math.random() * 9000) + 1000;
+  const [codes, setCodes] = useState(randomNumber.toString());
+  const [codeInput, setCodeInput] = useState('');
+
+  toast("Wow so easy!");
 
   useEffect(()=>{
 
@@ -27,6 +38,20 @@ function Authen() {
       password: password,
     }
     dispatch(login(values, () => window.location.reload()))
+  }
+  const handleSubmitRegis = (event) => {
+    if(codeInput == codes){
+    const values ={
+      phone: regisphone,
+      password: regispassword,
+      confirm_password: regisrepassword,
+      invitation_code: code
+    }
+    dispatch(register(values, () => window.location.reload()))
+  }
+  else{
+    console.log('Sai mã xác nhận')
+  }
   }
 
     return (
@@ -74,27 +99,50 @@ function Authen() {
                 <div className="list-input">
                   <input
                     type="text"
-                    placeholder="Vui lòng nhập tài khoản của bạn"
+                    placeholder="Vui lòng nhập số điện thoại"
+                    value={regisphone}
+                    onChange={(e)=>{
+                      setregisPhone(e.target.value)
+                    }}
                   ></input>
                   <input
                     type="password"
                     placeholder="Xin vui lòng nhập mật khẩu"
+                    value={regispassword}
+                    onChange={(e)=>{
+                      setregisPassword(e.target.value)
+                    }}
                   ></input>
                   <input
                     type="password"
                     placeholder="Xác nhận mật khẩu"
+                    value={regisrepassword}
+                    onChange={(e)=>{
+                      setregisrePassword(e.target.value)
+                    }}
                   ></input>
                   <input
                     type="text"
                     placeholder="Vui lòng nhập mã mời của bạn"
+                    value={code}
+                    onChange={(e)=>{
+                      setCode(e.target.value)
+                    }}
                   ></input>
-                  <input
-                    type="text"
-                    placeholder="Mã xác nhận"
-                  ></input>
+                   <div className="captcha d-flex">
+                    <input
+                      type="text"
+                      placeholder="Mã xác nhận"
+                      value={codeInput}
+                      onChange={(e)=>{
+                        setCodeInput(e.target.value)
+                      }}
+                    ></input>
+                  <Captcha code={codes} />
+                  </div>
                 </div>
                 <div className="list-btn-res">
-                  <button>Đăng ký ngay</button>
+                  <button onClick={handleSubmitRegis}>Đăng ký ngay</button>
                 </div>
               </Tab>
             </Tabs>

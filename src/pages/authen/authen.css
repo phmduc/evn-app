@@ -68,6 +68,9 @@
     padding: 0.3rem 0;
     background: none;
 }
+.authen .form .list-input > input{
+    padding: .7rem 0;
+} 
 .authen .form .list-input input::placeholder{
     text-align: center;
     font-size: 13px;
@@ -122,4 +125,23 @@
 .authen .nav-link{
     color: #000;
     border: none !important;
+}
+
+.authen .captcha{
+    width: 100%;
+    margin: 0.5rem 0;
+    outline: none;
+    text-align: center;
+    border-radius: 24px;
+    border-radius: 24px;
+    border: 1px solid#adb5bd;
+    background: none;
+}
+.authen .captcha input{
+    border: none !important;
+}
+
+.authen .captcha canvas{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }

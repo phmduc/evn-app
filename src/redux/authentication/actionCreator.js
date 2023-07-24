@@ -25,15 +25,14 @@ const login = (values, callback) => {
   };
 };
 
-const register = (values) => {
+const register = (values, callback) => {
   return async (dispatch) => {
     dispatch(loginBegin());
     try {
-      const response = await axios.post('/register', values);
-      if (response.data.errors) {
-        dispatch(loginErr('Registration failed!'));
-      } else {
-        dispatch(loginSuccess(false));
+      const response = await DataService.post('/wp-json/dbevn/v1/reg', values);
+      if (response.data) {
+        dispatch(loginSuccess(true));
+        callback();
       }
     } catch (err) {
       dispatch(loginErr(err));
